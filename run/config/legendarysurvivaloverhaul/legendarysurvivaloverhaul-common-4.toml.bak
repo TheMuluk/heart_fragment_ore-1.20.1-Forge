@@ -1,0 +1,333 @@
+
+# Options related to enabling/disabling specific features
+# See the data packs to customize the temperature of specific blocks, liquids, armors, etc.
+[core]
+	# Whether the temperature system is enabled.
+	"Temperature Enabled" = true
+	# Whether the thirst system is enabled.
+	"Thirst Enabled" = true
+	# Whether the overhaul health system is enabled.
+	"Health Overhaul Enabled" = true
+	# Whether body members receive localized damages.
+	"Localized Body Damage Enabled" = true
+	# How the mod represents a challenge for the player.
+	# Accepted values are as follows:
+	#   PEACEFUL - Temperature doesn't harm the player and the hydration doesn't decrease.
+	#   EASY - Temperature and Thirst won't hurt the player health below 10 hearts.
+	#   NORMAL - Temperature and Thirst hurts the player down to 1 heart.
+	#   HARD - Temperature and Thirst can kill the player.
+	# Any other value will default to HARD.
+	#Allowed Values: PEACEFUL, EASY, NORMAL, HARD
+	"Temperature Difficulty Mode" = "HARD"
+
+	[core.advanced]
+		# How often player temperature, thirst, body damage and health is regularly synced between the client and server, in ticks.
+		# Lower values will increase accuracy at the cost of performance.
+		#Range: > 1
+		"Routine Packet Sync" = 30
+
+	[core.misc]
+		# What information the compass returns when player is using it or in an item frame.
+		#Allowed Values: FULL, HORIZONTAL, NONE
+		"Compass Info Mode" = "FULL"
+		# If enabled, use on a filled map will show destination coordinates.
+		"Show Coordinate On Filled Map" = true
+		# If enabled, information like position and direction will be hidden from the debug screen (F3).
+		"Hide Info From Debug" = true
+		# If enabled, the player can regenerate health naturally if their hunger is full enough (doesn't affect external healing, such as golden apples, the Regeneration effect, etc.)
+		"Natural Regeneration Enabled" = true
+		# If enabled, the player suffers vanilla freeze when inside powder snow.
+		"Vanilla Freeze Enabled" = false
+		# How much health player will have initially.
+		#Range: 1.0 ~ 10000.0
+		"Initial Player Health" = 20.0
+
+# Options related to the player food data
+[food]
+	# Food exhausted every 10 ticks. Increase the base minecraft food exhaustion.
+	#Range: 0.0 ~ 1000.0
+	"Base Food Exhaustion" = 0.05
+	# Food exhausted every 10 ticks while sprinting in addition to the sprinting minecraft food exhaustion.
+	#Range: 0.0 ~ 1000.0
+	"Sprinting Food Exhaustion" = 0.1
+	# Food exhausted on every attack in addition to the minecraft attack food exhaustion.
+	#Range: 0.0 ~ 1000.0
+	"On Attack Food Exhaustion" = 0.1
+
+# Options related to the temperature system
+[temperature]
+	# If enabled, players will take damage from the effects of high temperature.
+	"Dangerous Heat Temperature Effects" = true
+	# If enabled, players will take damage from the effects of low temperature.
+	"Dangerous Cold Temperature Effects" = true
+	# Chance of the ferns to become a gold fern when grow mature.
+	#Range: 0.0 ~ 1.0
+	"Gold Fern Chance" = 0.01
+	# How much of an effect being on fire has on a player's temperature.
+	#Range: -1000.0 ~ 1000.0
+	"Player On Fire Modifier" = 12.5
+	# How much of an effect sprinting has on a player's temperature.
+	#Range: -1000.0 ~ 1000.0
+	"Player Sprint Modifier" = 1.5
+	# How much of an effect altitude has on player's temperature.
+	# Each 64 blocks further from sea level will impact player's temperature by this value.
+	# The sea level can be defined via datapack under the dimension's temperature.
+	# As an example, a value of -6 will reduce the player's temperature by 6 for each 64 blocks (the calculus is done linearly).
+	#Range: -1000.0 ~ 1000.0
+	"Altitude Modifier" = -6.0
+
+	[temperature.temperature-immunity]
+		# If enabled, players will be immune to temperature effects after death.
+		"Temperature Immunity On Death Enabled" = true
+		# Temperature immunity period in ticks while the player is immune to temperature effects after death.
+		#Range: 0 ~ 100000
+		"Temperature Immunity On Death Time" = 1800
+		# If enabled, players will be immune to temperature effects on first spawn in a world.
+		"Temperature Immunity On First Spawn Enabled" = true
+		# Temperature immunity period in ticks while the player is immune to temperature effects on first spawn.
+		#Range: 0 ~ 100000
+		"Temperature Immunity On First Spawn Time" = 1800
+
+	[temperature.secondary_effects]
+		# If enabled, players will also receive other effects from their current temperature state.
+		# If the player is too hot, hydration will deplete faster.
+		"Heat Temperature Secondary Effects" = true
+		# If enabled, players will also receive other effects from their current temperature state.
+		# If the player is too cold, hunger will deplete faster.
+		"Cold Temperature Secondary Effects" = true
+		# How much thirst exhaustion will be added every 50 ticks with no amplification effect, when the player suffers from heat.
+		#Range: 0.0 ~ 1000.0
+		"Heat Thirst Effect Modifier" = 0.2
+		# How much food exhaustion will be added every 50 ticks with no amplification effect, when the player suffers from frostbite.
+		# As reference, the hunger effect add 0.025 food exhaustion every 50 ticks.
+		#Range: 0.0 ~ 1000.0
+		"Cold Hunger Modifier" = 0.1
+
+	[temperature.wetness]
+		# Enable the wetness mechanic.
+		"Wetness Enabled" = true
+		# List of mounts that provide a wetness immunity.
+		"Wetness Immunity Mounts" = ["alexscaves:submarine", "immersive_machinery:bamboo_bee", "immersive_machinery:tunnel_digger", "immersive_machinery:redstone_sheep", "immersive_machinery:copperfin"]
+		# How much being wet influences the player's temperature.
+		# It means that for a value of -10, the body temperature of the player is reduced by 10.
+		#Range: -1000.0 ~ 1000.0
+		"Wetness Modifier" = -10.0
+		# How frequently the wetness is modified.
+		# By default, every 10 ticks, the wetness will either increase or decrease, based on the conditions.
+		#Range: 1 ~ 100000
+		"Wetness Tick Timer" = 10
+		# How much the wetness decrease when out of water.
+		#Range: -1000 ~ 0
+		"Wetness Decrease" = -3
+		# How much the wetness increase when under rain.
+		#Range: 0 ~ 1000
+		"Wetness Under Rain Increase" = 7
+		# How much the wetness increase when the player is in a fluid, scale by the amount of fluid in the block.
+		# The defined value is for a full block of fluid, and goes up to 2 times this value when fully immerge.
+		#Range: 0 ~ 1000
+		"Wetness In Fluid Increase" = 10
+
+	[temperature.huddling]
+		# How much nearby players increase the ambient temperature by.
+		# Note that this value stacks!
+		#Range: -1000.0 ~ 1000.0
+		"Player Huddling Modifier" = 0.5
+		# The radius, in blocks, around which players will add to each other's temperature.
+		#Range: 0 ~ 10
+		"Player Huddling Radius" = 1
+
+	[temperature.biomes]
+		# How much a biome's temperature effects are multiplied.
+		#Range: 0.0 ~ 1000.0
+		"Biome Temperature Multiplier" = 18.0
+		# Whether biomes will have an effect on a player's temperature.
+		"Biomes affect Temperature" = true
+		# How much hot biome's dryness will make nights really cold.
+		# Affects only dry (minecraft down fall <0.2) and hot biome.
+		# 1 means no dryness effect; 0.5 means the biome temp will be divided by 2 at the middle of the night.
+		#Range: 0.0 ~ 1.0
+		"Biome's Dryness Multiplier" = 0.2
+
+	# The underground effect starts apply at Start Distance to the world surface.
+	# The underground effect will linearly apply a multiplier on the biome temperature, and averages the time and season temperature effects.
+	[temperature.underground]
+		# How much a biomes temperature effects are multiplied when player is underground
+		#Range: 0.0 ~ 1000.0
+		"Underground Biome Temperature Multiplier" = 0.8
+		# Distance to the World Surface where underground effect will start to be applied.
+		# Smaller distance, no underground effect are applied.
+		#Range: 0 ~ 400
+		"Start Distance To World Surface For Underground Effect" = 10
+		# Distance to the World Surface where underground effect will be maximal.
+		# Bigger distance, the underground effect is maximal. Between the Start and End Distance, the increase of underground effect is linear.
+		#Range: 0 ~ 400
+		"End Distance To World Surface For Underground Effect" = 16
+
+	[temperature.weather]
+		# How much of an effect rain has on temperature.
+		# It means that for a value of -2, the body temperature of the player is reduced by 2.
+		#Range: -1000.0 ~ 1000.0
+		"Rain Temperature Modifier" = -2.0
+		# How much of an effect snow has on temperature.
+		# It means that for a value of -6, the body temperature of the player is reduced by 6.
+		#Range: -1000.0 ~ 1000.0
+		"Snow Temperature Modifier" = -6.0
+
+	# Freeze effect increases while inside snow powder.
+	[temperature.freeze]
+		# How much of an effect freeze has on temperature when reaching maximum tick time. Starts at 0 and increases linearly.
+		#Range: -1000.0 ~ 1000.0
+		"Max Freeze Temperature Modifier" = -10.0
+		# How long in tick before freeze modifier reaches its maximum effect.
+		#Range: 0 ~ 100000
+		"Max Freeze Effect Tick" = 400
+
+	[temperature.time]
+		# How much Time has effect on Temperature.
+		# Maximum effect at noon (positive) and midnight (negative), following a sinusoidal
+		#Range: 0.0 ~ Infinity
+		"Time Based Temperature Modifier" = 2.0
+		# How strongly time in extreme temperature biomes affect player's temperature.
+		# Extreme temperature biomes (like snowy taiga, deserts, ...) will multiply the time based temperature by this value, while temperate biome won't be affected by this value, following a linear.
+		#Range: 1.0 ~ Infinity
+		"Biome Time Multiplier" = 1.75
+		# Staying in the shade or during cloudy weather will reduce player's temperature by this amount based on time of the day (maximum effect at noon, following sinusoidal).
+		# It means that for a value of -6, the body temperature of the player is reduced by 6.
+		# Only effective when reaching the threshold and during day time!
+		#Range: -1000.0 ~ 1000.0
+		"Shade Time Modifier" = -6.0
+		# Defines when the biome temperature added by the season temperature (if seasons mod loaded) will trigger a shade effect.
+		#Range: 0.0 ~ 10000.0
+		"Shade Time Modifier Threshold" = 9.0
+
+	# Temperature coat adds temperature effects on armors by using the sewing table.
+	# Adaptive means the coating will maintain the player's temperature temperate.
+	[temperature.coat]
+
+		# Add a heating resistance on armors.
+		[temperature.coat.heating]
+			#Range: 0.0 ~ 1000.0
+			"Heating Coat I" = 2.0
+			#Range: 0.0 ~ 1000.0
+			"Heating Coat II" = 3.0
+			#Range: 0.0 ~ 1000.0
+			"Heating Coat III" = 4.0
+
+		# Add a cooling resistance on armors.
+		[temperature.coat.cooling]
+			#Range: 0.0 ~ 1000.0
+			"Cooling Coat I" = 2.0
+			#Range: 0.0 ~ 1000.0
+			"Cooling Coat II" = 3.0
+			#Range: 0.0 ~ 1000.0
+			"Cooling Coat III" = 4.0
+
+		# Add a temperature resistance on armors that can both heat and cool the player.
+		[temperature.coat.thermal]
+			#Range: 0.0 ~ 1000.0
+			"Thermal Coat I" = 2.0
+			#Range: 0.0 ~ 1000.0
+			"Thermal Coat II" = 3.0
+			#Range: 0.0 ~ 1000.0
+			"Thermal Coat III" = 4.0
+
+	[temperature.advanced]
+		# Maximum influence distance, in blocks, where thermal sources will have an effect on temperature.
+		#Range: 1 ~ 40
+		"Temperature Influence Maximum Distance" = 20
+		# How strongly influence distance above the player is reduced for thermal sources to have an effect on temperature.
+		# Example max dist is 10, up mult is 0.75 -> max distance is 10 * 0.75 = 7.5 blocks above the player.
+		# Logic is that heat goes up, the strength of the heat source above the player is decreased faster with distance.
+		#Range: 0.0 ~ 1.0
+		"Temperature Influence Up Distance Multiplier" = 0.75
+		# How strongly influence distance outside a structure is reduced for thermal sources to have an effect on temperature.
+		# The outside maximum distance is defined as the maximum distance * this value
+		#Range: 0.0 ~ 1.0
+		"Temperature Influence Outside Distance Multiplier" = 0.5
+
+		# The player's temperature will be adjusted at each temperature tick time,
+		# by an amount of temperature defined between the minimum and the maximum temperature modification adjusted linearly.
+		[temperature.advanced.temperature-modification]
+			# Amount of time in ticks between 2 player temperature modification. The bigger is this value, the more time it takes between temperature adjustments.
+			#Range: > 5
+			"Temperature Tick Time" = 20
+			# Maximum amount of temperature the player's temperature can be modified at each temperature tick time.
+			# Correspond to the amount of temperature given when temperature difference is maximum, meaning 40.
+			#Range: 0.1 ~ 2.147483647E9
+			"Maximum Temperature Modification" = 1.0
+			# Minimum amount of temperature the player's temperature can be modified at each temperature tick time.
+			# Correspond to the amount of temperature given when there is no temperature difference
+			#Range: 0.1 ~ 2.147483647E9
+			"Minimum Temperature Modification" = 0.2
+
+	[temperature.integration]
+
+		# If TerraFirmaCraft is installed, then biome, time, season (if serene seasons installed) and altitude modifiers will be disabled, and TerraFirmaCraft calculation used instead.
+		# All other modifiers remain to calculate Player temperature.
+		[temperature.integration.terrafirmacraft]
+			# How much the heat of the item provided by TerraFirmaCraft is multiplied. 0 deactivates the impact on temperature.
+			#Range: 0.0 ~ 1000.0
+			"TerraFirmaCraft Item Heat Multiplier" = 0.01
+			# How much the temperature given from TerraFirmaCraft is multiplied. 0 deactivates the impact on temperature.
+			#Range: 0.0 ~ 1000.0
+			"TerraFirmaCraft Temperature Multiplier" = 1.0
+
+		[temperature.integration.serene-seasons]
+			# If Serene Seasons is installed, whether the seasons have an effect on the player's temperature.
+			"Serene Seasons Enabled" = true
+			# If the tropical seasons are disabled, the normal summer-autumn-winter-spring seasons are applied.
+			# If disabled, dry and wet seasons are applied for hot biomes.
+			"Tropical Seasons Enabled" = false
+			# If season cards are enabled, season cards will appear at every season changes.
+			"Season Cards Enabled" = false
+			# If default season is enabled, when serene season defines no season effect in a biome, the normal season temperature will be applied.
+			# If disabled, when serene season defines no season effects, no season temperature will be applied.
+			"Default Season Enabled" = true
+
+			# Temperature modifiers per season in temperate biomes. The value is reached at the middle of the sub season, and smoothly transition from one to another.
+			[temperature.integration.serene-seasons.temperate]
+
+				[temperature.integration.serene-seasons.temperate.spring]
+					#Range: -1000.0 ~ 1000.0
+					"Early Spring Modifier" = -3.0
+					#Range: -1000.0 ~ 1000.0
+					"Mid Spring Modifier" = 0.0
+					#Range: -1000.0 ~ 1000.0
+					"Late Spring Modifier" = 3.0
+
+				[temperature.integration.serene-seasons.temperate.summer]
+					#Range: -1000.0 ~ 1000.0
+					"Early Summer Modifier" = 6.0
+					#Range: -1000.0 ~ 1000.0
+					"Mid Summer Modifier" = 10.0
+					#Range: -1000.0 ~ 1000.0
+					"Late Summer Modifier" = 6.0
+
+				[temperature.integration.serene-seasons.temperate.autumn]
+					#Range: -1000.0 ~ 1000.0
+					"Early Autumn Modifier" = 3.0
+					#Range: -1000.0 ~ 1000.0
+					"Mid Autumn Modifier" = 0.0
+					#Range: -1000.0 ~ 1000.0
+					"Late Autumn Modifier" = -3.0
+
+				[temperature.integration.serene-seasons.temperate.winter]
+					#Range: -1000.0 ~ 1000.0
+					"Early Winter Modifier" = -7.0
+					#Range: -1000.0 ~ 1000.0
+					"Mid Winter Modifier" = -12.0
+					#Range: -1000.0 ~ 1000.0
+					"Late Winter Modifier" = -7.0
+
+			# Temperature modifiers per season in tropical biomes.
+			[temperature.integration.serene-seasons.tropical]
+
+				[temperature.integration.serene-seasons.tropical.wet-season]
+					#Range: -1000.0 ~ 1000.0
+					"Early Wet Season Modifier" = -1.0
+					#Range: -1000.0 ~ 1000.0
+					"Mid Wet Season Modifier" = -5.0
+					#Range: -1000.0 ~ 1000.0
+					"Late Wet Season Modifier" = -1.0
+
+				[temperature.integratio

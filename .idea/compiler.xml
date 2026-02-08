@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="17" />
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="&quot;-AoutRefMapFile=C:\Users\malek\Documents\Minecraft Modding\heart_fragment_ore-1.20.1-Forge\build\classes\java\main\heart_fragment_ore-refmap.json&quot; -AdefaultObfuscationEnv=named:intermediary -Aquiet=true &quot;-AoutMapFileNamedIntermediary=C:\Users\malek\Documents\Minecraft Modding\heart_fragment_ore-1.20.1-Forge\build\loom-cache\mixin-map-loom.mappings.1_20_1.layered+hash.40359-v2-forge-1.20.1-47.4.10.main.tiny&quot; -AinMapFileNamedIntermediary=C:\Users\malek\.gradle\caches\fabric-loom\1.20.1\loom.mappings.1_20_1.layered+hash.40359-v2-forge-1.20.1-47.4.10\mappings-mixin-srg.tiny" />
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="heart_fragment_ore.test" options="&quot;-AoutRefMapFile=C:\Users\malek\Documents\Minecraft Modding\heart_fragment_ore-1.20.1-Forge\build\classes\java\test\test-heart_fragment_ore-refmap.json&quot; -AdefaultObfuscationEnv=named:intermediary -Aquiet=true &quot;-AoutMapFileNamedIntermediary=C:\Users\malek\Documents\Minecraft Modding\heart_fragment_ore-1.20.1-Forge\build\loom-cache\mixin-map-loom.mappings.1_20_1.layered+hash.40359-v2-forge-1.20.1-47.4.10.test.tiny&quot; -AinMapFileNamedIntermediary=C:\Users\malek\.gradle\caches\fabric-loom\1.20.1\loom.mappings.1_20_1.layered+hash.40359-v2-forge-1.20.1-47.4.10\mappings-mixin-srg.tiny" />
+    </option>
+  </component>
+</project>
